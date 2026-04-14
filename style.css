@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: white;
+    text-align: center;
+    background: #000;
+}
+
+#start-overlay {
+    position: fixed;
+    inset: 0;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+button {
+    padding: 16px 32px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(45deg, #ff4b2b, #ff416c, #ff9a9e);
+    background-size: 200% 200%;
+    transition: 0.4s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+button:hover { transform: scale(1.1); filter: brightness(1.2); }
+
+#intro {
+    position: fixed;
+    inset: 0;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+#intro-counter {
+    font-size: 100px;
+    font-weight: bold;
+    color: #ff4b2b;
+    text-shadow: 0 0 30px rgba(255, 75, 43, 0.8);
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(270deg, #ff416c, #ff4b2b, #ff6a00, #ff9a9e);
+    background-size: 800% 800%;
+    animation: gradientMove 15s ease infinite;
+    z-index: -3;
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0%}
+    50% {background-position: 100%}
+    100% {background-position: 0%}
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 90%;
+}
+
+.hidden { display: none !important; }
+
+#hearts-container { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.heart, .confetti { position: absolute; animation: floatUp 6s linear forwards; }
+
+@keyframes floatUp {
+    0% {transform: translateY(105vh) rotate(0deg); opacity: 1;}
+    100% {transform: translateY(-10vh) rotate(360deg); opacity: 0;}
+}
+
+.wizard {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: wizardFloat 2s ease-in-out infinite alternate;
+}
+
+@keyframes wizardFloat {
+    from { transform: translateY(0); }
+    to { transform: translateY(-20px); }
+}
+
+.envelope-wrapper { margin: 40px auto; width: 280px; height: 180px; perspective: 1000px; }
+.envelope { position: relative; width: 100%; height: 100%; background: #e03a3a; border-radius: 0 0 10px 10px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); cursor: pointer; }
+.envelope::before {
+    content: ""; position: absolute; top: 0; left: 0; z-index: 4;
+    border-left: 140px solid transparent; border-right: 140px solid transparent;
+    border-top: 100px solid #ff5a5a; transform-origin: top; transition: transform 0.5s ease;
+}
+.envelope.open::before { transform: rotateX(180deg); z-index: 0; }
+.letter {
+    position: absolute; bottom: 5px; left: 10px; width: 260px; height: 160px;
+    background: white; color: #333; padding: 15px; box-sizing: border-box;
+    border-radius: 5px; transition: 0.6s ease; z-index: 2; display: flex;
+    flex-direction: column; justify-content: center; font-size: 14px;
+}
+.envelope.open .letter { transform: translateY(-120px); height: 200px; z-index: 5; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+
+#fireworks { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+
+.gift { width: 150px; height: 150px; margin: 80px auto 20px; perspective: 800px; cursor: pointer; }
+.gift-inner { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; }
+.box { width: 100%; height: 100%; background: linear-gradient(145deg, #ff2d2d, #a80000); position: absolute; border-radius: 12px; z-index: 1; }
+.lid { width: 110%; height: 40px; background: linear-gradient(145deg, #ff5c5c, #7a0000); position: absolute; top: -5px; left: -5%; border-radius: 10px; transform-origin: top; transition: 0.8s; z-index: 10; }
+.gift.open .lid { transform: rotateX(140deg) translateY(-20px); }
+.ribbon-v { width: 14px; height: 100%; left: 50%; transform: translateX(-50%); position: absolute; background: gold; z-index: 2; }
+.ribbon-h { height: 14px; width: 100%; top: 50%; transform: translateY(-50%); position: absolute; background: gold; z-index: 2; }
+.money { position: absolute; top: 20%; left: 50%; transform: translate(-50%, 0) scale(0); transition: 0.8s; font-size: 40px; z-index: 5; }
+.gift.open .money { transform: translate(-50%, -100px) scale(1.6); }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днем Рождения, Папа!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="drumSound" src="drums.mp3" preload="auto"></audio>
+<audio id="music" src="happy.mp3" loop preload="auto"></audio>
+<audio id="openSound" src="open.mp3" preload="auto"></audio>
+
+<canvas id="fireworks"></canvas>
+
+<div id="hearts-container"></div>
+<div class="overlay"></div>
+
+<div id="start-overlay">
+    <div class="intro-content">
+        <h1 style="font-size: 40px; margin-bottom: 20px;">Привет, Папа! ❤️</h1>
+        <p>Для тебя приготовлен сюрприз</p>
+        <button class="start-btn" onclick="startEverything()">Начать просмотр 🚀</button>
+    </div>
+</div>
+
+<div id="intro" class="hidden">
+    <div class="intro-content">
+        <h1>🎬 Готовься...</h1>
+        <p>Начинаем через:</p>
+        <div id="intro-counter">3</div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="title">С ДНЁМ РОЖДЕНИЯ, ПАПА 🎉</h1>
+    <p id="typing-text" class="message"></p>
+
+    <div id="main-action">
+        <button id="start-btn" class="hidden" onclick="openGreeting()">Открыть сюрприз 🎁</button>
+    </div>
+
+    <div id="greeting" class="hidden"></div>
+    <div id="surprise" class="hidden"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
