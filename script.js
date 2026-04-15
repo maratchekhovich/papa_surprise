@@ -79,7 +79,7 @@ function openGreeting() {
         <div class="envelope-wrapper">
             <div class="envelope" onclick="this.classList.toggle('open')">
                 <div class="letter">
-                    <p><b>Папа, ты для меня пример силы.</b></p>
+                    <p><b>Папа, ты для меня пример силы и настоящего характера.</b></p>
                     <p>Я очень тебя люблю ❤️</p>
                     <button onclick="event.stopPropagation(); showMagic()">Увидеть магию ✨</button>
                 </div>
